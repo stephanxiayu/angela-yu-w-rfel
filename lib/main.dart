@@ -32,7 +32,7 @@ class _DiceState extends State<Dice> {
  int rightDiceNumber=1;
 
  
-  void Wurfel(){
+  void changeWurfel(){
     setState(() {
               leftDiceNumber= Random().nextInt( 6)+1;
                 rightDiceNumber= Random().nextInt( 6)+1;
@@ -50,12 +50,12 @@ class _DiceState extends State<Dice> {
       body: Center(
         child: Row(children: [
           Expanded(
-            child: FlatButton(onPressed: (){Wurfel();
+            child: FlatButton(onPressed: (){changeWurfel();
              },
               child: Image.asset("lib/images/dice$leftDiceNumber.png"),),),
           
           Expanded(
-            child: FlatButton(onPressed: (){Wurfel();
+            child: FlatButton(onPressed: (){changeWurfel();
              },
               child: Image.asset("lib/images/dice$rightDiceNumber.png"),),),
           
