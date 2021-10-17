@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,9 +20,28 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Dice extends StatelessWidget {
+class Dice extends StatefulWidget {
+
+
+  @override
+  State<Dice> createState() => _DiceState();
+}
+
+class _DiceState extends State<Dice> {
+ int leftDiceNumber=1;
+ int rightDiceNumber=1;
+
+ 
+  void Wurfel(){
+    setState(() {
+              leftDiceNumber= Random().nextInt( 6)+1;
+                rightDiceNumber= Random().nextInt( 6)+1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(elevation: 9,
         title: Center(child: Text("Würfel")),
@@ -29,13 +50,15 @@ class Dice extends StatelessWidget {
       body: Center(
         child: Row(children: [
           Expanded(
-            child: FlatButton(onPressed: (){},
-              child: Image.asset("lib/images/dice1.png"),),),
+            child: FlatButton(onPressed: (){Wurfel();
+             },
+              child: Image.asset("lib/images/dice$leftDiceNumber.png"),),),
           
-           Expanded(
-            child: FlatButton(onPressed: (){},
-              child: Image.asset("lib/images/dice2.png"),),
-          ),
+          Expanded(
+            child: FlatButton(onPressed: (){Wurfel();
+             },
+              child: Image.asset("lib/images/dice$rightDiceNumber.png"),),),
+          
         ],),
       ),
     );
