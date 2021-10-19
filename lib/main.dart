@@ -47,19 +47,26 @@ class _DiceState extends State<Dice> {
         title: Center(child: Text("Würfel")),
       backgroundColor: Colors.red,),
       backgroundColor: Colors.red,
-      body: Center(
-        child: Row(children: [
-          Expanded(
-            child: FlatButton(onPressed: (){changeWurfel();
-             },
-              child: Image.asset("lib/images/dice$leftDiceNumber.png"),),),
-          
-          Expanded(
-            child: FlatButton(onPressed: (){changeWurfel();
-             },
-              child: Image.asset("lib/images/dice$rightDiceNumber.png"),),),
-          
-        ],),
+      body: FlatButton(onPressed: (){changeWurfel();},
+        child: Center(
+          child: Row(children: [
+            Expanded(
+              
+               
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset("lib/images/dice$leftDiceNumber.png"),
+                ),),
+            
+            Expanded(
+            
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Image.asset("lib/images/dice$rightDiceNumber.png"),
+                ),),
+            
+          ],),
+        ),
       ),
     );
   }
