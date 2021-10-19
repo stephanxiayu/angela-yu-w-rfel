@@ -1,4 +1,4 @@
-package com.example.angela1
+package com.sg_technology.angela1
 
 import io.flutter.embedding.android.FlutterActivity
 
